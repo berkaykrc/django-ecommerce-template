@@ -17,7 +17,7 @@ pipenv
 ### Installing
 ```sh
 git pull https://github.com/berkaykrc/django-ecommerce-template.git
-python cd berkayStore
+cd berkayStore
 pipenv sync
 py manage.py makemigrations & py manage.py migrate
 pipenv shell > py manage.py runserver
@@ -26,7 +26,7 @@ pipenv shell > py manage.py runserver
 
 ## site view
 
-[![](https://i.hizliresim.com/3OgZnp.png)](https://hizliresim.com/3OgZnp)
+[![image](https://i.hizliresim.com/3OgZnp.png)](https://hizliresim.com/3OgZnp)
 
 
 ## Built With
