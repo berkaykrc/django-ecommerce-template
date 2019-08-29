@@ -1,5 +1,6 @@
 media/
-*/*/migrations/0/*
+
+*/*/migrations/*
 
 # DB:
 
