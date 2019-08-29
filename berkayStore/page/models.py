@@ -10,8 +10,8 @@ STATUS = [
 class Page(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
-    cover_image = models.ImageField(upload_to="page")
-    # slug =
+    cover_image = models.ImageField(upload_to="page", null=True, blank = True)
+    slug = models.SlugField(max_length=200, default="")
     status = models.CharField(
         choices=STATUS,
         max_length=10,
