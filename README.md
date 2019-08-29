@@ -8,30 +8,25 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-
-```
+```sh
 python 3.7.3
 Django 2.2.4
 pipenv
 ```
 
 ### Installing
-
-
-`git pull https://github.com/berkaykrc/django-ecommerce-template.git`
-
-`python cd berkayStore`
-
-`pipenv sync`
-
-`py manage.py makemigrations & py manage.py migrate`
-
-`pipenv shell > py manage.py runserver`
+```sh
+git pull https://github.com/berkaykrc/django-ecommerce-template.git
+python cd berkayStore
+pipenv sync
+py manage.py makemigrations & py manage.py migrate
+pipenv shell > py manage.py runserver
+```
 
 
 ## site view
 
-![image](https://i.hizliresim.com/5NqlER.png)
+[![](https://i.hizliresim.com/3OgZnp.png)](https://hizliresim.com/3OgZnp)
 
 
 ## Built With
