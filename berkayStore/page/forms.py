@@ -1,5 +1,5 @@
 from django import forms
-from .models import Carousel
+from .models import Carousel, Page
 
 
 class CarouselModelForm(forms.ModelForm):
@@ -7,5 +7,17 @@ class CarouselModelForm(forms.ModelForm):
         model = Carousel
         fields = [
             'title',
-            'cover_image'
+            'cover_image',
+            'status',
+        ]
+
+
+class PageModelForm(forms.ModelForm):
+    class Meta:
+        model = Page
+        fields = [
+            'title',
+            'content',
+            'cover_image',
+            'status',
         ]

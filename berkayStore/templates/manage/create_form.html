@@ -4,13 +4,16 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-sm-12 ">
+            <h2>{{ title }}</h2>
+            <a href="{% url 'page_list' %}" class="btn btn-info">Page List</a>
             <a href="{% url 'carousel_list' %}" class="btn btn-info">Carousel List</a>
-                <form method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <br>
+            <hr>
+            <br>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
                 <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+            </form>
 
         </div>
     </div>
