@@ -1,6 +1,6 @@
 from django.db import models
 
-DEFATULT_STATUS = 'draft'
+DEFAULT_STATUS = 'draft'
 
 STATUS = [
     ('draft', "Taslak"),
@@ -24,7 +24,7 @@ class Page(models.Model):
     status = models.CharField(
         choices=STATUS,
         max_length=10,
-        default=DEFATULT_STATUS,
+        default=DEFAULT_STATUS,
     )
     created_at = models.DateTimeField(
         auto_now_add=True
@@ -32,6 +32,7 @@ class Page(models.Model):
     updated_at = models.DateTimeField(
         auto_now=True
     )
+
 
 
 class Carousel(models.Model):
@@ -46,7 +47,7 @@ class Carousel(models.Model):
     status = models.CharField(
         max_length=10,
         choices=STATUS,
-        default=DEFATULT_STATUS,
+        default=DEFAULT_STATUS,
     )
     created_at = models.DateTimeField(
         auto_now_add=True
