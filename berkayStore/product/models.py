@@ -3,7 +3,7 @@ from page.models import DEFAULT_STATUS, STATUS
 
 
 GENDER_CHOICE = [
-    ('man', "Erkek"),
+    ('man', 'Erkek'),
     ('women', 'Kadin'),
     ('unisex', 'Unisex')
 ]
@@ -32,7 +32,7 @@ class Category(models.Model):
     )
 
     def __str__(self):
-            return self.title
+            return f'{self.gender} - {self.title}'
 
 
 class Product(models.Model):
