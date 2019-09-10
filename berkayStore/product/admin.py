@@ -22,6 +22,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_editable = (
         "title",
         "status",
+        "price",
     )
 
 
@@ -45,6 +46,7 @@ class CategoryAdmin(admin.ModelAdmin):
     list_editable = (
         "title",
         "status",
+        "slug",
     )
 
 
