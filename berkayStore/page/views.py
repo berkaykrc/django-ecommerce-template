@@ -3,6 +3,8 @@ from django.utils.text import slugify
 from .models import Carousel, Page
 from django.contrib import messages
 from .forms import CarouselModelForm, PageModelForm
+from product.models import Category
+
 
 
 def index(request):
@@ -10,6 +12,9 @@ def index(request):
     context['images'] = Carousel.objects.filter(
         status='published',
     ).exclude(cover_image='')
+    # context['categories'] = Category.objects.filter(
+    #     status='published',
+    # )
     return render(request, 'home/index.html', context)
 
 

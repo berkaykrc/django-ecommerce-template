@@ -16,7 +16,7 @@
                 </ul>
             </div>
             <div class="col-sm-4">
-                
+
                 <form class="form-inline">
                     <div class="form-group mx-sm-3 mb-2">
                         <label for="ebulten" class="sr-only">E-Bulten</label>
@@ -33,25 +33,31 @@
             <div class="col-sm-2">
                 <h5 class="text-light">Erkek</h5>
                 <ul class="list-unstyled">
-                    <li><a href="">Lorem, ipsum dolor.</a></li>
-                    <li><a href="">Sunt, dolore harum!</a></li>
-                    <li><a href="">Quasi, error perferendis?</a></li>
+                    {% for item in categories%}
+                    {% if item.gender == 'man' or item.gender == 'unisex' %}
+                    <li><a href="{% url 'category_show' category_slug=item.slug %}">{{ item.title }}</a></li>
+                    {%endif%}
+                    {% endfor %}
                 </ul>
             </div>
             <div class="col-sm-2">
                 <h5 class="text-light">Kadin</h5>
                 <ul class="list-unstyled">
-                    <li><a href="">Facere, saepe tempora!</a></li>
-                    <li><a href="">Labore, maiores quia!</a></li>
-                    <li><a href="">Nemo, officiis voluptate.</a></li>
+                    {% for item in categories%}
+                    {% if item.gender == 'women' or item.gender == 'unisex' %}
+                    <li><a href="{% url 'category_show' category_slug=item.slug %}">{{ item.title }}</a></li>
+                    {%endif%}
+                    {% endfor %}
                 </ul>
             </div>
             <div class="col-sm-2">
                 <h5 class="text-light">Her Zaman</h5>
                 <ul class="list-unstyled">
-                    <li><a href="">Quasi, ipsam possimus?</a></li>
-                    <li><a href="">Aliquam, perspiciatis autem.</a></li>
-                    <li><a href="">Voluptatum, quasi sit!</a></li>
+                    {% for item in categories%}
+                    {% if item.gender == 'unisex' %}
+                    <li><a href="{% url 'category_show' category_slug=item.slug %}">{{ item.title }}</a></li>
+                    {%endif%}
+                    {% endfor %}
                 </ul>
             </div>
             <div class="col-sm-2">
