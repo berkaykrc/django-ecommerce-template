@@ -1,21 +1,31 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import (
+    render,
+    redirect,
+    get_object_or_404
+)
 from django.utils.text import slugify
 from .models import Carousel, Page
 from django.contrib import messages
 from .forms import CarouselModelForm, PageModelForm
-from product.models import Category
-
+from product.models import Category, Product
 
 
 def index(request):
     context = dict()
     context['images'] = Carousel.objects.filter(
-        status='published',
+        status='published'
     ).exclude(cover_image='')
-    # context['categories'] = Category.objects.filter(
-    #     status='published',
-    # )
+    context['products'] = Product.objects.filter(
+        in_homepage=True,
+    )
     return render(request, 'home/index.html', context)
+
+
+def page_view(request, slug):
+    context = dict()
+    context['page'] = get_object_or_404(Page, slug=slug)
+    return render(request, 'page/page.html', context)
+
 
 
 def manage_list(request):
@@ -42,6 +52,7 @@ def page_create(request):
             messages.success(request, 'Sayfanız eklendi')
     return render(request, 'manage/create_form.html', context)
 
+
 def page_update(request, pk):
     context = dict()
     item = Page.objects.get(pk=pk)
@@ -55,6 +66,7 @@ def page_update(request, pk):
             form.save()
             return redirect('page_update', pk)
     return render(request, 'manage/create_form.html', context)
+
 
 def carousel_create(request):
     context = dict()

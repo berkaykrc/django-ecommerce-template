@@ -7,6 +7,7 @@ from .views import (
     carousel_list,
     carousel_update,
     # page
+    page_view,
     page_list,
     page_create,
     page_update,
@@ -27,4 +28,5 @@ urlpatterns = [
     path('page/list/', page_list, name='page_list'),
     path('page/create/', page_create, name='page_create'),
     path('page/update/<int:pk>/', page_update, name='page_update'),
+    path('page/<slug:slug>/', page_view, name='page_view'),
 ]
