@@ -11,18 +11,21 @@ class ProductAdmin(admin.ModelAdmin):
         "stock",
         "cover_image",
         "status",
+        "in_homepage",
         "updated_at",
         "created_at",
     )
     list_filter = (
         "status",
         "price",
+        "in_homepage",
     )
 
     list_editable = (
         "title",
         "status",
         "price",
+        "in_homepage",
     )
 
 
