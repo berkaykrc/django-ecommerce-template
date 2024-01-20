@@ -3,6 +3,7 @@ from django.shortcuts import (
     redirect,
     get_object_or_404
 )
+
 from django.utils.text import slugify
 from .models import Carousel, Page
 from django.contrib import messages
@@ -10,7 +11,7 @@ from .forms import CarouselModelForm, PageModelForm
 from product.models import Category, Product
 
 
-def index(request):
+def index(request): 
     context = dict()
     context['images'] = Carousel.objects.filter(
         status='published'
@@ -18,6 +19,7 @@ def index(request):
     context['products'] = Product.objects.filter(
         in_homepage=True,
     )
+
     return render(request, 'home/index.html', context)
 
 
@@ -25,7 +27,6 @@ def page_view(request, slug):
     context = dict()
     context['page'] = get_object_or_404(Page, slug=slug)
     return render(request, 'page/page.html', context)
-
 
 
 def manage_list(request):
