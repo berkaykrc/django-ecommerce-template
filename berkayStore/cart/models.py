@@ -1,14 +1,15 @@
-from django.db import models
-from product.models import Product
 from django.contrib.auth.models import User
+from django.db import models
+from django.db.models.signals import m2m_changed, post_save
 from django.dispatch import receiver
-from django.db.models.signals import post_save, m2m_changed
+from product.models import Product
 
 SHOPPINGCART_STATUS = [
     ('deleted', 'Silindi'),
     ('waiting', 'Bekliyor'),
     ('purchased', 'Satin Alindi')
 ]
+
 
 class ShoppingCartItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
@@ -23,6 +24,7 @@ class ShoppingCartItem(models.Model):
 
     def __str__(self):
         return f'{self.product.title} {self.price} TL'
+
 
 class ShoppingCart(models.Model):
     user = models.ForeignKey(
@@ -65,9 +67,6 @@ class ShoppingCart(models.Model):
                     total_price += item.price
             self.total_price = total_price
             self.save()
-
-
-
 
 
 @receiver(post_save, sender=ShoppingCartItem)
